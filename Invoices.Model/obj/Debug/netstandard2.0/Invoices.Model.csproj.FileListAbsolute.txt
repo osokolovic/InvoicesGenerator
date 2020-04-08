@@ -1,0 +1,9 @@
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\bin\Debug\netstandard2.0\Invoices.Model.deps.json
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\bin\Debug\netstandard2.0\Invoices.Model.dll
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\bin\Debug\netstandard2.0\Invoices.Model.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.csprojAssemblyReference.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.AssemblyInfoInputs.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.AssemblyInfo.cs
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.dll
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Model\obj\Debug\netstandard2.0\Invoices.Model.csproj.CoreCompileInputs.cache

@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "uOnnhcstJjlB4k1H8NFEH7XWZGxerlacaKRpX3DOwueoXX5OwiFT7I4Xgv3j3HeH2nE6VJ3sqF3YDHEZ2xDHQQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Omar FBA\\Desktop\\InvoicesGenerator\\Invoices.Model\\Invoices.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Omar FBA\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
+    "C:\\Users\\Omar FBA\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Omar FBA\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EntityFramework 6.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EntityFramework",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
+}

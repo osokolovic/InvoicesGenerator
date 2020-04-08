@@ -1,0 +1,12 @@
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\bin\Debug\netstandard2.0\Invoices.Data.deps.json
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\bin\Debug\netstandard2.0\Invoices.Data.dll
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\bin\Debug\netstandard2.0\Invoices.Data.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\bin\Debug\netstandard2.0\Invoices.Model.dll
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\bin\Debug\netstandard2.0\Invoices.Model.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.csprojAssemblyReference.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.csproj.CoreCompileInputs.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.AssemblyInfoInputs.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.AssemblyInfo.cs
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.csproj.CopyComplete
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.dll
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Data\obj\Debug\netstandard2.0\Invoices.Data.pdb

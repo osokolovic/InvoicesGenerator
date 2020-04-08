@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoicesGenerator", "InvoicesGenerator\InvoicesGenerator.csproj", "{636DF008-EB43-4B5E-9846-023ED1F016B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoices.Data", "Invoices.Dataa\Invoices.Data.csproj", "{1E0E61F8-1A14-4600-A16B-737E49768AF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoices.Model", "Invoices.Models\Invoices.Model.csproj", "{5CE9B412-5335-454D-AB5C-B8F5D31CE583}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{636DF008-EB43-4B5E-9846-023ED1F016B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{636DF008-EB43-4B5E-9846-023ED1F016B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{636DF008-EB43-4B5E-9846-023ED1F016B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0E61F8-1A14-4600-A16B-737E49768AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0E61F8-1A14-4600-A16B-737E49768AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0E61F8-1A14-4600-A16B-737E49768AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0E61F8-1A14-4600-A16B-737E49768AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE9B412-5335-454D-AB5C-B8F5D31CE583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE9B412-5335-454D-AB5C-B8F5D31CE583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE9B412-5335-454D-AB5C-B8F5D31CE583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE9B412-5335-454D-AB5C-B8F5D31CE583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
