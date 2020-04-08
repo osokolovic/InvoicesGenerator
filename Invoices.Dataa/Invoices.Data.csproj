@@ -66,6 +66,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementations\ChargeNameRepository.cs" />
+    <Compile Include="Repositories\Implementations\ChargeRepository.cs" />
+    <Compile Include="Repositories\Implementations\ClientRepository.cs" />
+    <Compile Include="Repositories\Implementations\InvoiceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IChargeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IChargeNameRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IClientRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IInvoiceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -82,5 +90,6 @@
       <DependentUpon>202004071727351_Invoices.Data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
