@@ -11,7 +11,7 @@ namespace Invoices.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string CompanyName { get; set; }
-        
+        public bool Deleted { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }
         

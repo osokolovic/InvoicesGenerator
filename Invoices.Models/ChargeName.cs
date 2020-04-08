@@ -6,7 +6,7 @@ namespace Invoices.Models
     {
         public int ChargeNameId { get; set; }
         public string Name { get; set; }
-        
+        public bool Deleted { get; set; }
         public virtual List<Charge> Charges { get; set; }
     }
 }

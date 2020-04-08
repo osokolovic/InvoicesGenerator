@@ -10,7 +10,8 @@ namespace Invoices.Models
         public double Amount { get; set; }
         public double Tax { get; set; }
         public double Total { get; set; }
-        
+        public bool Deleted { get; set; }
+
         public int ChargeNameId { get; set; }
         public ChargeName ChargeName { get; set; }
         
