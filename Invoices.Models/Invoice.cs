@@ -8,9 +8,9 @@ namespace Invoices.Models
         public int InvoiceId { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime InvoiceDate { get; set; }
+        public string CompanyName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string CompanyName { get; set; }
         public bool Deleted { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }

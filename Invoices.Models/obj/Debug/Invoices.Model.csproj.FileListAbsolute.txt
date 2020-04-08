@@ -9,3 +9,4 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.M
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Models.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Models.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csprojAssemblyReference.cache

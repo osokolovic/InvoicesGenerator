@@ -6,7 +6,9 @@ namespace Invoices.Data
 {
     public class InvoiceEntities : DbContext
     {
-        public InvoiceEntities() : base("name=InvoicesDB") { }
+        public InvoiceEntities() : base("name=InvoicesDB") 
+        {
+        }
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
