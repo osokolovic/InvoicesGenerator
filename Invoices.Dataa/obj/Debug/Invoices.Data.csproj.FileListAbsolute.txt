@@ -9,8 +9,6 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\bin\Debug\Invoices.Mo
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\bin\Debug\EntityFramework.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csprojAssemblyReference.cache
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Dataa.Migrations.InvoicesData.resources
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csproj.GenerateResource.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Dataa.dll

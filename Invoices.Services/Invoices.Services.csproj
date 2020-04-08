@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\ChargeNameService.cs" />
+    <Compile Include="Implementation\ChargeService.cs" />
+    <Compile Include="Implementation\ClientService.cs" />
+    <Compile Include="Implementation\InvoiceService.cs" />
+    <Compile Include="Interfaces\IChargeNameService.cs" />
+    <Compile Include="Interfaces\IChargeService.cs" />
+    <Compile Include="Interfaces\IClientService.cs" />
+    <Compile Include="Interfaces\IInvoiceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +61,6 @@
       <Name>Invoices.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

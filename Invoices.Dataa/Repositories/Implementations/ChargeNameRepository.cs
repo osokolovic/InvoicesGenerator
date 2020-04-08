@@ -1,11 +1,11 @@
 ﻿using Invoices.Data.Infrastructure.Implementations;
 using Invoices.Data.Infrastructure.Interfaces;
-using Invoices.Dataa.Repositories.Interfaces;
+using Invoices.Data.Repositories.Interfaces;
 using Invoices.Models;
 using System;
 using System.Linq;
 
-namespace Invoices.Dataa.Repositories.Implementations
+namespace Invoices.Data.Repositories.Implementations
 {
     public class ChargeNameRepository : RepositoryBase<ChargeName>, IChargeNameRepository
     {

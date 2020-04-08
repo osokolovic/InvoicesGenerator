@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Invoices.Data.Infrastructure.Interfaces;
+using Invoices.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Invoices.Dataa.Repositories.Interfaces
+namespace Invoices.Data.Repositories.Interfaces
 {
-    interface IChargeRepository
+    public interface IChargeRepository : IRepository<Charge>
     {
+        IEnumerable<Charge> GetByInvoiceId(int invoiceId);
     }
 }

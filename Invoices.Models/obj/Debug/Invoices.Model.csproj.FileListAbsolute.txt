@@ -5,7 +5,6 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\EntityFram
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\EntityFramework.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csprojAssemblyReference.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Models.dll

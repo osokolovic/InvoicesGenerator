@@ -1,13 +1,14 @@
-﻿using Invoices.Models;
+﻿using Invoices.Data.Infrastructure.Interfaces;
+using Invoices.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invoices.Dataa.Repositories.Interfaces
+namespace Invoices.Data.Repositories.Interfaces
 {
-    interface IChargeNameRepository
+    public interface IChargeNameRepository : IRepository<ChargeName>
     {
         ChargeName GetChargeByName(string name);
     }
