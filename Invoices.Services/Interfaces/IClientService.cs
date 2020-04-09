@@ -9,6 +9,8 @@ namespace Invoices.Services.Interfaces
         Client GetClient(int clientId);
         Client GetClient(string companyName);
         void CreateClient(Client client);
+        void UpdateClient(Client client);
+        void DeleteClient(Client client);
         void SaveClient();
 
     }

@@ -79,5 +79,49 @@ namespace InvoicesGenerator.Controllers
             return JsonConvert.SerializeObject(client);
         }
 
+        public ActionResult Update(ClientFormViewModel client)
+        {
+            var dbClient = client;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    clientService.UpdateClient(dbClient);
+                    clientService.SaveClient();
+                    //Poruke bi trebale biti izdvojene u zaseban file zbog mogucnosti lokalizacije u buducnosti
+                    TempData["MainMessage"] = "Client was updated successfully.";
+                    TempData["MessageType"] = "success";
+                }
+                catch (Exception e)
+                {
+                    TempData["MainMessage"] = "Error, client was not updated.";
+                    TempData["MessageType"] = "danger";
+                }
+            }
+            return RedirectToAction("UpDelClientForm");
+        }
+
+        public ActionResult Delete(ClientFormViewModel client)
+        {
+            var dbClient = client;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    clientService.DeleteClient(client);
+                    clientService.SaveClient();
+                    //Poruke bi trebale biti izdvojene u zaseban file zbog mogucnosti lokalizacije u buducnosti
+                    TempData["MainMessage"] = "Client was deleted successfully.";
+                    TempData["MessageType"] = "success";
+                }
+                catch (Exception e)
+                {
+                    TempData["MainMessage"] = "Error, client was not deleted.";
+                    TempData["MessageType"] = "danger";
+                }
+            }
+            return RedirectToAction("UpDelClientForm");
+        }
+
     }
 }

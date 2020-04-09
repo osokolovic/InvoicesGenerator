@@ -46,6 +46,22 @@ namespace Invoices.Services.Implementation
 
         }
 
+        public void UpdateClient(Client client)
+        {
+            clientRepository.Update(client);
+        }
+
+        public void DeleteClient(Client client)
+        {
+            var dbClient = clientRepository.GetById(client.ClientId);
+            //Zbog dobrih praksi, pozeljno bi bilo uraditi soft delete.
+            //To nije navedeno pa ne zelim da krsim acceptance kriterij.
+            if (dbClient != null)
+            {
+                clientRepository.Delete(dbClient);
+            }
+        }
+
         public void SaveClient()
         {
             unitOfWork.Commit();
