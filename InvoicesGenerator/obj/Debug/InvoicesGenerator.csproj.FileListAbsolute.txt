@@ -1,5 +1,3 @@
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.csprojAssemblyReference.cache
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\InvoicesGenerator.dll.config
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\InvoicesGenerator.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\InvoicesGenerator.pdb
@@ -90,6 +88,8 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\System.Web.Web
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\Newtonsoft.Json.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\Antlr3.Runtime.pdb
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.csprojAssemblyReference.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\InvoicesGenerator\obj\Debug\InvoicesGenerator.pdb

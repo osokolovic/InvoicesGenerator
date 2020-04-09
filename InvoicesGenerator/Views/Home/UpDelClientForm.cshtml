@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Update/Delete existing clients";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h3>@ViewBag.Title</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="selectClient" class="col-lg-2 control-label">Client</label>
+                <div class="col-lg-10">
+                    <select id="selectClient" name="Client" class="form-control">
+                        <option disabled selected>Select client</option>
+                        <option value="1">Client 1</option>
+                        <option value="2">Client 2</option>
+                        <option value="3">Client 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCompanyName" class="col-lg-2 control-label">Company name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
+                           value="@Request.Form["companyname"]" placeholder="Enter company name">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("companyname")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputCity" class="col-lg-2 control-label">City</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputCity" name="City"
+                           value="@Request.Form["city"]" placeholder="Enter city">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("city")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" class="col-lg-2 control-label">Address</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputAddress" name="Address"
+                           value="@Request.Form["address"]" placeholder="Enter address">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("address")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputContract" class="col-lg-2 control-label">Contract</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputContract" name="Contract"
+                           value="@Request.Form["contract"]" placeholder="Enter contract number">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("contract")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputPhone" name="Phone"
+                           value="@Request.Form["phone"]" placeholder="Enter phone number">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("phone")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input type="email" class="form-control" id="inputEmail" name="Email"
+                           value="@Request.Form["email"]" placeholder="Enter email">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("email")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputContactPerson" class="col-lg-2 control-label">Contact person</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputContactPerson" name="ContactPerson"
+                           value="@Request.Form["contactperson"]" placeholder="Enter contact person">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("contactperson")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputContractDateStart" class="col-lg-2 control-label">Contract start date</label>
+                <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputContractDateStart" name="ContractDateStart"
+                           value="@Request.Form["contractdatestart"]" placeholder="Enter contract start date">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("contractdatestart")</p>
+            </div>
+            <div class="form-group">
+                <label for="inputContractDateEnd" class="col-lg-2 control-label">Contract end date</label>
+                <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputContractDateEnd" name="ContractDateEnd"
+                           value="@Request.Form["contractdateend"]" placeholder="Enter contract end date">
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("contractdateend")</p>
+            </div>
+            <div class="form-group">
+                <label for="selectActive" class="col-lg-2 control-label">Active</label>
+                <div class="col-lg-10">
+                    <select id="selectActive" name="Active" class="form-control">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <p class="col-lg-7 text-center">@Html.ValidationMessage("active")</p>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-3 text-center">
+                    <button type="submit" formaction="#" class="btn btn-danger">Delete</button>
+                    <button type="submit" formaction="#" class="btn btn-default">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

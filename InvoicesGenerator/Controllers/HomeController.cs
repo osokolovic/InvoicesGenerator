@@ -17,6 +17,7 @@ namespace InvoicesGenerator.Controllers
         {
 
         }
+
         public HomeController(IClientService clientService)
         {
             this.clientService = clientService;
@@ -24,17 +25,25 @@ namespace InvoicesGenerator.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = "Invoice generator";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AddClientForm()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult UpDelClientForm()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult InvoiceForm()
         {
             ViewBag.Message = "Your contact page.";
 
@@ -42,22 +51,10 @@ namespace InvoicesGenerator.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddClient(ClientViewModel client)
+        public ActionResult AddClient(ClientFormViewModel client)
         {
-            if (client != null)
-            {
-                var dbClient = new Client
-                {
-                    ClientId = client.ClientId,
-                    CompanyName = client.CompanyName,
-                    Address = client.Address
-                };
-                clientService.CreateClient(dbClient);
-
-                clientService.SaveClient();
-                return Json(new { success = true, responseText = "Your message successfuly sent!" }, JsonRequestBehavior.AllowGet);
-            }
-            return Json(new { success = false, responseText = "The attached file is not supported." }, JsonRequestBehavior.AllowGet);
+            var test = client;
+            return View();
         }
     }
 }

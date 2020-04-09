@@ -2,7 +2,7 @@
 
 namespace InvoicesGenerator.ViewModels
 {
-    public class ClientViewModel
+    public class ClientFormViewModel
     {
         public int ClientId { get; set; }
         public string CompanyName { get; set; }
