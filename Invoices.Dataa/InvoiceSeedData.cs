@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace Invoices.Data
 {
-    public class InvoiceSeedData : DropCreateDatabaseAlways<InvoiceEntities>
+    public class InvoiceSeedData : CreateDatabaseIfNotExists<InvoiceEntities>
     {
         protected override void Seed(InvoiceEntities context)
         {

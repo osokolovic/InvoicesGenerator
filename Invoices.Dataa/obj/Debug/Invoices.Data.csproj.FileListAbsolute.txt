@@ -30,3 +30,5 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Da
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Dataa.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Dataa.pdb
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Dataa.Migrations.InvoicesData.resources
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Dataa\obj\Debug\Invoices.Data.csproj.GenerateResource.cache

@@ -1,10 +1,7 @@
 ﻿using Invoices.Models;
 using Invoices.Services.Interfaces;
 using InvoicesGenerator.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Newtonsoft.Json;
 using System.Web.Mvc;
 
 namespace InvoicesGenerator.Controllers
@@ -53,8 +50,15 @@ namespace InvoicesGenerator.Controllers
         [HttpPost]
         public ActionResult AddClient(ClientFormViewModel client)
         {
-            var test = client;
+            var cli = client;
             return View();
+        }
+
+        [HttpGet]
+        public string GetClientById(int id)
+        {
+            var client = clientService.GetClient(id);
+            return JsonConvert.SerializeObject(client);
         }
     }
 }
