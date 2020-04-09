@@ -1,6 +1,4 @@
-﻿using Invoices.Models;
-using Invoices.Services.Interfaces;
-using InvoicesGenerator.ViewModels;
+﻿using Invoices.Services.Interfaces;
 using Newtonsoft.Json;
 using System.Web.Mvc;
 
@@ -26,31 +24,10 @@ namespace InvoicesGenerator.Controllers
             return View();
         }
 
-        public ActionResult AddClientForm()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult UpDelClientForm()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
         public ActionResult InvoiceForm()
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddClient(ClientFormViewModel client)
-        {
-            var cli = client;
             return View();
         }
 

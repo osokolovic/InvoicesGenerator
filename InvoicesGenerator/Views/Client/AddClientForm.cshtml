@@ -10,94 +10,123 @@
 <hr />
 <div class="row">
     <div class="col-lg-12">
-        <form class="form-horizontal" method="post" action="@Url.Action("AddClient", "Home")">
+        <form class="form-horizontal" method="post" action="@Url.Action("AddClientForm", "Client")">
             <div class="form-group">
                 <label for="inputCompanyName" class="col-lg-2 control-label">Company name</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
-                           value="@Request.Form["companyname"]" placeholder="Enter company name">
+                           value="@Request.Form["CompanyName"]" placeholder="Enter company name">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("companyname")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputCity" class="col-lg-2 control-label">City</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputCity" name="City"
-                           value="@Request.Form["city"]" placeholder="Enter city">
+                           value="@Request.Form["City"]" placeholder="Enter city">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("city")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputAddress" class="col-lg-2 control-label">Address</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputAddress" name="Address"
-                           value="@Request.Form["address"]" placeholder="Enter address">
+                           value="@Request.Form["Address"]" placeholder="Enter address">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("address")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputContract" class="col-lg-2 control-label">Contract</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputContract" name="Contract"
-                           value="@Request.Form["contract"]" placeholder="Enter contract number">
+                           value="@Request.Form["Contract"]" placeholder="Enter contract number">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("contract")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.Contract, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputPhone" name="Phone"
-                           value="@Request.Form["phone"]" placeholder="Enter phone number">
+                           value="@Request.Form["Phone"]" placeholder="Enter phone number">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("phone")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-10">
                     <input type="email" class="form-control" id="inputEmail" name="Email"
-                           value="@Request.Form["email"]" placeholder="Enter email">
+                           value="@Request.Form["Email"]" placeholder="Enter email">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("email")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputContactPerson" class="col-lg-2 control-label">Contact person</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="inputContactPerson" name="ContactPerson"
-                           value="@Request.Form["contactperson"]" placeholder="Enter contact person">
+                           value="@Request.Form["ContactPerson"]" placeholder="Enter contact person">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("contactperson")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.ContactPerson, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputContractDateStart" class="col-lg-2 control-label">Contract start date</label>
                 <div class="col-lg-10">
                     <input type="date" class="form-control" id="inputContractDateStart" name="ContractDateStart"
-                           value="@Request.Form["contractdatestart"]" placeholder="Enter contract start date">
+                           value="@Request.Form["ContractDateStart"]" placeholder="Enter contract start date">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("contractdatestart")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.ContractDateStart, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="inputContractDateEnd" class="col-lg-2 control-label">Contract end date</label>
                 <div class="col-lg-10">
                     <input type="date" class="form-control" id="inputContractDateEnd" name="ContractDateEnd"
-                           value="@Request.Form["contractdateend"]" placeholder="Enter contract end date">
+                           value="@Request.Form["ContractDateEnd"]" placeholder="Enter contract end date">
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("contractdateend")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.ContractDateEnd, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <label for="selectActive" class="col-lg-2 control-label">Active</label>
                 <div class="col-lg-10">
-                    <select id="selectActive" name="Active" class="form-control">
+                    <select id="selectStatus" name="Status" class="form-control">
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
                     </select>
                 </div>
-                <p class="col-lg-7 text-center">@Html.ValidationMessage("active")</p>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </p>
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-3 text-center">
                     <button type="submit" class="btn btn-default">Save</button>
                 </div>
             </div>
+            @if (String.IsNullOrEmpty(ViewBag.MainMessage) == false)
+            {
+                <div class="form-group">
+                    <div class="alert alert-@ViewBag.MessageType alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        @ViewBag.MainMessage
+                    </div>
+                </div>
+            }
         </form>
     </div>
 </div>
