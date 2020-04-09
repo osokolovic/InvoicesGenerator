@@ -1,0 +1,211 @@
+﻿@model InvoicesGenerator.ViewModels.InvoiceFormViewModel
+@{
+    ViewBag.Title = "Add new invoice";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h3>@ViewBag.Title</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-horizontal" method="post" action="@Url.Action("AddInvoiceForm", "Invoice")">
+            <div class="form-group">
+                <label for="inputInvoiceNumber" class="col-lg-2 control-label">Invoice Number</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputInvoiceNumber" name="InvoiceNumber"
+                           value="@Request.Form["InvoiceNumber"]" placeholder="Enter invoice number">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.InvoiceNumber, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputInvoiceDate" class="col-lg-2 control-label">Invoice date</label>
+                <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputInvoiceDate" name="InvoiceDate"
+                           value="@Request.Form["InvoiceDate"]" placeholder="Enter invoice date">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="selectCompany" class="col-lg-2 control-label">Company</label>
+                <div class="col-lg-10">
+                    <select id="selectCompany" name="CompanyName" class="form-control">
+                        <option disabled selected>Select company</option>
+                        @if (ViewBag.Companies != null)
+                        {
+                            foreach (var item in ViewBag.Companies)
+                            {
+                                <option value="@item.CompanyName">@item.CompanyName</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputStartDate" class="col-lg-2 control-label">Start date</label>
+                <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputStartDate" name="StartDate"
+                           value="@Request.Form["StartDate"]" placeholder="Enter start date">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputEndDate" class="col-lg-2 control-label">End date</label>
+                <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputEndDate" name="EndDate"
+                           value="@Request.Form["EndDate"]" placeholder="Enter End date">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="inputDayChargeRate" class="col-lg-2 control-label">Day charge rate</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputDayChargeRate" name="DayChargeRate"
+                           value="@Request.Form["DayChargeRate"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.DayChargeRate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputDayChargeUnits" class="col-lg-2 control-label">Day charge Units</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputDayChargeUnits" name="DayChargeUnits"
+                           value="@Request.Form["DayChargeUnits"]" step="1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.DayChargeUnits, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputDayChargeAmount" class="col-lg-2 control-label">Day charge Amount</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputDayChargeAmount" name="DayChargeAmount"
+                           value="@Request.Form["DayChargeAmount"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.DayChargeAmount, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group text-center">
+                <label for="inputDayChargeTotal" class="col-lg-2 control-label">Day charge Total</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputDayChargeTotal" name="DayChargeTotal"
+                           value="@Request.Form["DayChargeTotal"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.DayChargeTotal, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="inputNightChargeRate" class="col-lg-2 control-label">Night charge rate</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputNightChargeRate" name="NightChargeRate"
+                           value="@Request.Form["NightChargeRate"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.NightChargeRate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputNightChargeUnits" class="col-lg-2 control-label">Night charge Units</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputNightChargeUnits" name="NightChargeUnits"
+                           value="@Request.Form["NightChargeUnits"]" step="1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.NightChargeUnits, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputNightChargeAmount" class="col-lg-2 control-label">Night charge Amount</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputNightChargeAmount" name="NightChargeAmount"
+                           value="@Request.Form["NightChargeAmount"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.NightChargeAmount, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group text-center">
+                <label for="inputNightChargeTotal" class="col-lg-2 control-label">Night charge Total</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputNightChargeTotal" name="NightChargeTotal"
+                           value="@Request.Form["NightChargeTotal"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.NightChargeTotal, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="inputWeekendChargeRate" class="col-lg-2 control-label">Weekend charge rate</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputWeekendChargeRate" name="WeekendChargeRate"
+                           value="@Request.Form["WeekendChargeRate"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.WeekendChargeRate, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputWeekendChargeUnits" class="col-lg-2 control-label">Weekend charge Units</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputWeekendChargeUnits" name="WeekendChargeUnits"
+                           value="@Request.Form["WeekendChargeUnits"]" step="1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.WeekendChargeUnits, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="inputWeekendChargeAmount" class="col-lg-2 control-label">Weekend charge Amount</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputWeekendChargeAmount" name="WeekendChargeAmount"
+                           value="@Request.Form["WeekendChargeAmount"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.WeekendChargeAmount, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group text-center">
+                <label for="inputWeekendChargeTotal" class="col-lg-2 control-label">Weekend charge Total</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputWeekendChargeTotal" name="WeekendChargeTotal"
+                           value="@Request.Form["WeekendChargeTotal"]" step="0.1">
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.WeekendChargeTotal, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-3 text-center">
+                    <button type="submit" class="btn btn-default">Save</button>
+                </div>
+            </div>
+            @if (String.IsNullOrEmpty(ViewBag.MainMessage) == false)
+            {
+                <div class="form-group">
+                    <div class="alert alert-@ViewBag.MessageType alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        @ViewBag.MainMessage
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>

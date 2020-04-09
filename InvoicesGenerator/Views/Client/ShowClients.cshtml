@@ -1,7 +1,4 @@
 ﻿@model IEnumerable<InvoicesGenerator.ViewModels.ClientFormViewModel>
-@{
-    var m = Model.ToList();
-}
 <hr />
 <br />
 <div class="row">
@@ -9,7 +6,7 @@
         <form class="form-inline" action="@Url.Action("ShowFilteredClients", "Client")">
             <div class="form-group">
                 <label class="sr-only" for="inputCompanyName">Company name</label>
-                <input type="text" class="form-control col-lg-6" id="inputCompanyName" name="CompanyName" 
+                <input type="text" class="form-control col-lg-6" id="inputCompanyName" name="CompanyName"
                        placeholder="Enter company name" value="@ViewBag.Filtered">
             </div>
             <button type="submit" class="btn btn-default">Search</button>
@@ -23,7 +20,6 @@
             <caption>Table of existing clients</caption>
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>@Html.ActionLink("Company Name", "ShowClients", "Client", new { sortOrder = "companyName", CompanyName = ViewBag.Filtered }, null)</th>
                     <th>@Html.ActionLink("Contract", "ShowClients", "Client", new { sortOrder = "contract", CompanyName = ViewBag.Filtered }, null)</th>
                     <th>@Html.ActionLink("City", "ShowClients", "Client", new { sortOrder = "city", CompanyName = ViewBag.Filtered }, null)</th>
@@ -31,16 +27,23 @@
                 </tr>
             </thead>
             <tbody>
-                @for (int i = 1; i <= m.Count; i++)
-                {
-                    <tr>
-                        <th scope="row">@i .</th>
-                        <td>@m[i-1].CompanyName</td>
-                        <td>@m[i-1].Contract</td>
-                        <td>@m[i-1].City</td>
-                        <td>@m[i-1].Address</td>
-                    </tr>
-                }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contract)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                </tr>
+            }
             </tbody>
         </table>
     </div>

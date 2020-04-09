@@ -2,6 +2,7 @@
 using Invoices.Services.Interfaces;
 using InvoicesGenerator.ViewModels;
 using Newtonsoft.Json;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -157,7 +158,7 @@ namespace InvoicesGenerator.Controllers
                 ViewBag.Filtered = CompanyName;
                 sortedClients = clientService.FilterByCompanyName(sortedClients, CompanyName);
             }
-            
+
             return View(this.castClients(sortedClients));
         }
 
@@ -169,6 +170,7 @@ namespace InvoicesGenerator.Controllers
                 ViewBag.Filtered = CompanyName;
                 filteredClients = clientService.FilterByCompanyName(filteredClients, CompanyName);
             }
+
             return View("ShowClients", this.castClients(filteredClients));
         }
 

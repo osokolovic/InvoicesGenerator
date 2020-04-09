@@ -9,5 +9,8 @@ namespace Invoices.Services.Interfaces
         IEnumerable<Charge> GetInvoiceCharges(int invoiceId);
         void CreateCharge(Charge charge);
         void SaveCharge();
+        Dictionary<string, double> CalculateCharge(int invoiceId);
+        Dictionary<string, double> GetRates(List<Charge> charges);
+        Dictionary<string, int> GetUnits(List<Charge> charges);
     }
 }

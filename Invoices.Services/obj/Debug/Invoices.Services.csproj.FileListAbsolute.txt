@@ -1,5 +1,3 @@
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.csprojAssemblyReference.cache
-C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\Invoices.Services.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\Invoices.Services.pdb
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\Autofac.dll
@@ -27,6 +25,8 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\System.W
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\bin\Debug\EntityFramework.xml
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.csprojAssemblyReference.cache
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.dll
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Services\obj\Debug\Invoices.Services.pdb
