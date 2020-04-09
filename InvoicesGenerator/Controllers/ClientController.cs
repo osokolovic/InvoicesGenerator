@@ -123,5 +123,24 @@ namespace InvoicesGenerator.Controllers
             return RedirectToAction("UpDelClientForm");
         }
 
+        private List<ClientFormViewModel> castClients(IEnumerable<Client> clients)
+        {
+            List<ClientFormViewModel> viewClients = new List<ClientFormViewModel>();
+            foreach (var item in clients)
+            {
+                viewClients.Add(item);
+            }
+
+            return viewClients;
+        }
+
+        public ActionResult ShowClients(string sortOrder)
+        {
+            var clients = clientService.GetClients();
+            var sortedClients = clientService.SortClientsByParam(clients, sortOrder);
+            
+            return View(this.castClients(sortedClients));
+        }
+
     }
 }

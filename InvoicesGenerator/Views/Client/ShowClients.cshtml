@@ -1,0 +1,38 @@
+﻿@model IEnumerable<InvoicesGenerator.ViewModels.ClientFormViewModel>
+@{
+    ViewBag.Title = "Show existing clients";
+    var m = Model.ToList();
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h3>@ViewBag.Title</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <caption>Table of existing clients</caption>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>@Html.ActionLink("CompanyName", "ShowClients", "Client", new { sortOrder = "companyName" }, null)</th>
+                    <th>@Html.ActionLink("Contract", "ShowClients", "Client", new { sortOrder = "contract" }, null)</th>
+                    <th>@Html.ActionLink("City", "ShowClients", "Client", new { sortOrder = "city" }, null)</th>
+                    <th>@Html.ActionLink("Address", "ShowClients", "Client", new { sortOrder = "address" }, null)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 1; i <= m.Count; i++)
+                {
+                    <tr>
+                        <th scope="row">@i .</th>
+                        <td>@m[i-1].CompanyName</td>
+                        <td>@m[i-1].Contract</td>
+                        <td>@m[i-1].City</td>
+                        <td>@m[i-1].Address</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

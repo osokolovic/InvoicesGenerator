@@ -66,5 +66,30 @@ namespace Invoices.Services.Implementation
         {
             unitOfWork.Commit();
         }
+
+        public IEnumerable<Client> SortClientsByParam(IEnumerable<Client> clients, string sortOrder)
+        {
+            IEnumerable<Client> sorted;
+            switch (sortOrder)
+            {
+                case "companyName":
+                    sorted = clients.OrderBy(o => o.CompanyName);
+                    break;
+                case "contract":
+                    sorted = clients.OrderBy(o => o.Contract);
+                    break;
+                case "city":
+                    sorted = clients.OrderBy(o => o.City);
+                    break;
+                case "address":
+                    sorted = clients.OrderBy(o => o.Address);
+                    break;
+                default:
+                    sorted = clients.OrderBy(o => o.CompanyName);
+                    break;
+            }
+
+            return sorted;
+        }
     }
 }
