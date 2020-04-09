@@ -98,6 +98,13 @@ namespace InvoicesGenerator.Controllers
                     TempData["MessageType"] = "danger";
                 }
             }
+            else
+            {
+                var clients = clientService.GetClients();
+                ViewBag.Clients = clients;
+                return View("UpDelClientForm", client);
+            }
+
             return RedirectToAction("UpDelClientForm");
         }
 
@@ -120,6 +127,13 @@ namespace InvoicesGenerator.Controllers
                     TempData["MessageType"] = "danger";
                 }
             }
+            else
+            {
+                var clients = clientService.GetClients();
+                ViewBag.Clients = clients;
+                return View("UpDelClientForm", client);
+            }
+
             return RedirectToAction("UpDelClientForm");
         }
 
@@ -134,12 +148,28 @@ namespace InvoicesGenerator.Controllers
             return viewClients;
         }
 
-        public ActionResult ShowClients(string sortOrder)
+        public ActionResult ShowClients(string sortOrder, string CompanyName = null)
         {
             var clients = clientService.GetClients();
             var sortedClients = clientService.SortClientsByParam(clients, sortOrder);
+            if (String.IsNullOrEmpty(CompanyName) == false)
+            {
+                ViewBag.Filtered = CompanyName;
+                sortedClients = clientService.FilterByCompanyName(sortedClients, CompanyName);
+            }
             
             return View(this.castClients(sortedClients));
+        }
+
+        public ActionResult ShowFilteredClients(string CompanyName)
+        {
+            var filteredClients = clientService.GetClients();
+            if (String.IsNullOrEmpty(CompanyName) == false)
+            {
+                ViewBag.Filtered = CompanyName;
+                filteredClients = clientService.FilterByCompanyName(filteredClients, CompanyName);
+            }
+            return View("ShowClients", this.castClients(filteredClients));
         }
 
     }

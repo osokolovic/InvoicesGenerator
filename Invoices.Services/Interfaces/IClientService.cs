@@ -13,5 +13,6 @@ namespace Invoices.Services.Interfaces
         void DeleteClient(Client client);
         void SaveClient();
         IEnumerable<Client> SortClientsByParam(IEnumerable<Client> clients, string sortOrder);
+        IEnumerable<Client> FilterByCompanyName(IEnumerable<Client> clients, string companyName);
     }
 }

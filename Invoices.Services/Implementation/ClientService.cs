@@ -2,6 +2,7 @@
 using Invoices.Data.Repositories.Interfaces;
 using Invoices.Models;
 using Invoices.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,6 +91,16 @@ namespace Invoices.Services.Implementation
             }
 
             return sorted;
+        }
+
+        public IEnumerable<Client> FilterByCompanyName(IEnumerable<Client> clients, string companyName)
+        {
+            if (String.IsNullOrEmpty(companyName) == false)
+            {
+                clients = clients.Where(c => c.CompanyName.ToUpper().Contains(companyName.ToUpper()));
+            }
+
+            return clients;
         }
     }
 }

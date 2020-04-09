@@ -22,6 +22,7 @@ C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\System.Web
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\System.Web.WebPages.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csprojAssemblyReference.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csproj.CoreCompileInputs.cache
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Model.csproj.CopyComplete
 C:\Users\Omar FBA\Desktop\InvoicesGenerator\Invoices.Models\obj\Debug\Invoices.Models.dll
