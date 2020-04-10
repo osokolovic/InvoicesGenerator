@@ -1,4 +1,5 @@
-﻿using Invoices.Services.Interfaces;
+﻿using Invoices.Models;
+using Invoices.Services.Interfaces;
 using InvoicesGenerator.ViewModels;
 using OfficeOpenXml;
 using System;
@@ -14,12 +15,15 @@ namespace InvoicesGenerator.Controllers
         private readonly IInvoiceService invoiceService;
         private readonly IClientService clientService;
         private readonly IChargeService chargeService;
+        private readonly IChargeNameService chargeNameService;
 
-        public InvoiceController(IInvoiceService invoiceService, IClientService clientService, IChargeService chargeService)
+        public InvoiceController(IInvoiceService invoiceService, IClientService clientService, 
+            IChargeService chargeService, IChargeNameService chargeNameService)
         {
             this.invoiceService = invoiceService;
             this.clientService = clientService;
             this.chargeService = chargeService;
+            this.chargeNameService = chargeNameService;
         }
 
         public InvoiceController()
@@ -35,6 +39,8 @@ namespace InvoicesGenerator.Controllers
 
         public ActionResult AddInvoiceForm()
         {
+            var companies = clientService.GetClients().ToList();
+            ViewBag.Companies = companies;
             return View();
         }
 
@@ -43,6 +49,24 @@ namespace InvoicesGenerator.Controllers
         {
             if (ModelState.IsValid)
             {
+                Invoice dbInvoice = invoice;
+                try
+                {
+                    //get company id
+                    var client = clientService.GetClient(invoice.CompanyName);
+                    dbInvoice.Client = client;
+                    dbInvoice.ClientId = client.ClientId;
+
+                    invoiceService.CreateInvoice(dbInvoice);
+                    invoiceService.SaveInvoice();
+                    ViewBag.MainMessage = "New invoice added successfully.";
+                    ViewBag.MessageType = "success";
+                }
+                catch (Exception e)
+                {
+                    ViewBag.MainMessage = "Error, new invoice was not added.";
+                    ViewBag.MessageType = "danger";
+                }
                 return View();
             } 
             else

@@ -71,10 +71,10 @@
             </div>
             <hr />
             <div class="form-group">
-                <label for="inputDayChargeRate" class="col-lg-2 control-label">Day charge rate</label>
+                <label for="inputDayChargeRate" class="col-lg-2 control-label">Day charge Rate</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputDayChargeRate" name="DayChargeRate"
-                           value="@Request.Form["DayChargeRate"]" step="0.1">
+                           value="@Request.Form["DayChargeRate"]" step="0.1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.DayChargeRate, "", new { @class = "text-danger" })
@@ -84,7 +84,7 @@
                 <label for="inputDayChargeUnits" class="col-lg-2 control-label">Day charge Units</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputDayChargeUnits" name="DayChargeUnits"
-                           value="@Request.Form["DayChargeUnits"]" step="1">
+                           value="@Request.Form["DayChargeUnits"]" step="1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.DayChargeUnits, "", new { @class = "text-danger" })
@@ -94,28 +94,28 @@
                 <label for="inputDayChargeAmount" class="col-lg-2 control-label">Day charge Amount</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputDayChargeAmount" name="DayChargeAmount"
-                           value="@Request.Form["DayChargeAmount"]" step="0.1">
+                           value="@Request.Form["DayChargeAmount"]" step="0.1" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.DayChargeAmount, "", new { @class = "text-danger" })
                 </p>
             </div>
-            <div class="form-group text-center">
-                <label for="inputDayChargeTotal" class="col-lg-2 control-label">Day charge Total</label>
+            <div class="form-group">
+                <label for="inputDayChargeTax" class="col-lg-2 control-label">Day charge Tax</label>
                 <div class="col-lg-10">
-                    <input type="number" class="form-control" id="inputDayChargeTotal" name="DayChargeTotal"
-                           value="@Request.Form["DayChargeTotal"]" step="0.1">
+                    <input type="number" class="form-control" id="inputDayChargeTax" name="DayChargeTax"
+                           value="@Request.Form["DayChargeTax"]" step="0.01" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
-                    @Html.ValidationMessageFor(model => model.DayChargeTotal, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.DayChargeTax, "", new { @class = "text-danger" })
                 </p>
             </div>
             <hr />
             <div class="form-group">
-                <label for="inputNightChargeRate" class="col-lg-2 control-label">Night charge rate</label>
+                <label for="inputNightChargeRate" class="col-lg-2 control-label">Night charge Rate</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputNightChargeRate" name="NightChargeRate"
-                           value="@Request.Form["NightChargeRate"]" step="0.1">
+                           value="@Request.Form["NightChargeRate"]" step="0.1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.NightChargeRate, "", new { @class = "text-danger" })
@@ -125,7 +125,7 @@
                 <label for="inputNightChargeUnits" class="col-lg-2 control-label">Night charge Units</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputNightChargeUnits" name="NightChargeUnits"
-                           value="@Request.Form["NightChargeUnits"]" step="1">
+                           value="@Request.Form["NightChargeUnits"]" step="1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.NightChargeUnits, "", new { @class = "text-danger" })
@@ -135,20 +135,20 @@
                 <label for="inputNightChargeAmount" class="col-lg-2 control-label">Night charge Amount</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputNightChargeAmount" name="NightChargeAmount"
-                           value="@Request.Form["NightChargeAmount"]" step="0.1">
+                           value="@Request.Form["NightChargeAmount"]" step="0.1" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.NightChargeAmount, "", new { @class = "text-danger" })
                 </p>
             </div>
-            <div class="form-group text-center">
-                <label for="inputNightChargeTotal" class="col-lg-2 control-label">Night charge Total</label>
+            <div class="form-group">
+                <label for="inputNightChargeTax" class="col-lg-2 control-label">Night charge Tax</label>
                 <div class="col-lg-10">
-                    <input type="number" class="form-control" id="inputNightChargeTotal" name="NightChargeTotal"
-                           value="@Request.Form["NightChargeTotal"]" step="0.1">
+                    <input type="number" class="form-control" id="inputNightChargeTax" name="NightChargeTax"
+                           value="@Request.Form["NightChargeTax"]" step="0.01" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
-                    @Html.ValidationMessageFor(model => model.NightChargeTotal, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.NightChargeTax, "", new { @class = "text-danger" })
                 </p>
             </div>
             <hr />
@@ -156,7 +156,7 @@
                 <label for="inputWeekendChargeRate" class="col-lg-2 control-label">Weekend charge rate</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputWeekendChargeRate" name="WeekendChargeRate"
-                           value="@Request.Form["WeekendChargeRate"]" step="0.1">
+                           value="@Request.Form["WeekendChargeRate"]" step="0.1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.WeekendChargeRate, "", new { @class = "text-danger" })
@@ -166,7 +166,7 @@
                 <label for="inputWeekendChargeUnits" class="col-lg-2 control-label">Weekend charge Units</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputWeekendChargeUnits" name="WeekendChargeUnits"
-                           value="@Request.Form["WeekendChargeUnits"]" step="1">
+                           value="@Request.Form["WeekendChargeUnits"]" step="1" onchange="calculateValues()">
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.WeekendChargeUnits, "", new { @class = "text-danger" })
@@ -176,20 +176,31 @@
                 <label for="inputWeekendChargeAmount" class="col-lg-2 control-label">Weekend charge Amount</label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="inputWeekendChargeAmount" name="WeekendChargeAmount"
-                           value="@Request.Form["WeekendChargeAmount"]" step="0.1">
+                           value="@Request.Form["WeekendChargeAmount"]" step="0.1" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.WeekendChargeAmount, "", new { @class = "text-danger" })
                 </p>
             </div>
-            <div class="form-group text-center">
-                <label for="inputWeekendChargeTotal" class="col-lg-2 control-label">Weekend charge Total</label>
+            <div class="form-group">
+                <label for="inputWeekendChargeTax" class="col-lg-2 control-label">Weekend charge Tax</label>
                 <div class="col-lg-10">
-                    <input type="number" class="form-control" id="inputWeekendChargeTotal" name="WeekendChargeTotal"
-                           value="@Request.Form["WeekendChargeTotal"]" step="0.1">
+                    <input type="number" class="form-control" id="inputWeekendChargeTax" name="WeekendChargeTax"
+                           value="@Request.Form["WeekendChargeTax"]" step="0.01" readonly>
                 </div>
                 <p class="col-lg-7 text-center">
-                    @Html.ValidationMessageFor(model => model.WeekendChargeTotal, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.WeekendChargeTax, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <hr />
+            <div class="form-group text-center">
+                <label for="inputChargeTotal" class="col-lg-2 control-label">Charge Total</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputChargeTotal" name="ChargeTotal"
+                           value="@Request.Form["ChargeTotal"]" step="0.1" readonly>
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.ChargeTotal, "", new { @class = "text-danger" })
                 </p>
             </div>
             <div class="form-group">
@@ -209,3 +220,26 @@
         </form>
     </div>
 </div>
+<script>
+    function calculateValues() {
+        let dayAmount = parseFloat($("#inputDayChargeRate").val()) * parseFloat($("#inputDayChargeUnits").val());
+        let nightAmount = parseFloat($("#inputNightChargeRate").val()) * parseFloat($("#inputNightChargeUnits").val());
+        let weekendAmount = parseFloat($("#inputWeekendChargeRate").val()) * parseFloat($("#inputWeekendChargeUnits").val());
+
+        let dayTax = (dayAmount * 0.17).toFixed(2);
+        let nightTax = (nightAmount * 0.17).toFixed(2);
+        let weekendTax = (weekendAmount * 0.17).toFixed(2);
+
+        let total = parseFloat(dayAmount + nightAmount + weekendAmount + dayTax + nightTax + weekendTax);
+
+        $("#inputDayChargeAmount").val(dayAmount.toFixed(1));
+        $("#inputNightChargeAmount").val(nightAmount.toFixed(1));
+        $("#inputWeekendChargeAmount").val(weekendAmount.toFixed(1));
+
+        $("#inputDayChargeTax").val(dayTax);
+        $("#inputNightChargeTax").val(nightTax);
+        $("#inputWeekendChargeTax").val(weekendTax);
+
+        $("#inputChargeTotal").val(total.toFixed(2));
+    }
+</script>

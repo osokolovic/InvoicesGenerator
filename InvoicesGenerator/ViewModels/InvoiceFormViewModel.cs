@@ -56,7 +56,7 @@ namespace InvoicesGenerator.ViewModels
         [Required]
         public double WeekendChargeTax { get; set; }
         [Required]
-        public double WeekendChargeTotal { get; set; }
+        public double ChargeTotal { get; set; }
         public int WeekendChargeNameId { get; set; }
 
         public static implicit operator InvoiceFormViewModel(Invoice invoice)
@@ -79,22 +79,20 @@ namespace InvoicesGenerator.ViewModels
                 DayChargeUnits = dayCharge.Units,
                 DayChargeAmount = dayCharge.Amount,
                 DayChargeTax = dayCharge.Tax,
-                DayChargeTotal = dayCharge.Total,
                 DayChargeNameId = dayCharge.ChargeNameId,
                 NightChargeId = nightCharge.ChargeId,
                 NightChargeRate = nightCharge.Rate,
                 NightChargeUnits = nightCharge.Units,
                 NightChargeAmount = nightCharge.Amount,
                 NightChargeTax = nightCharge.Tax,
-                NightChargeTotal = nightCharge.Total,
                 NightChargeNameId = nightCharge.ChargeNameId,
                 WeekendChargeId = weekendCharge.ChargeId,
                 WeekendChargeRate = weekendCharge.Rate,
                 WeekendChargeUnits = weekendCharge.Units,
                 WeekendChargeAmount = weekendCharge.Amount,
                 WeekendChargeTax = weekendCharge.Tax,
-                WeekendChargeTotal = weekendCharge.Total,
-                WeekendChargeNameId = weekendCharge.ChargeNameId
+                WeekendChargeNameId = weekendCharge.ChargeNameId,
+                ChargeTotal = dayCharge.Total
             };
         }
 
@@ -107,8 +105,8 @@ namespace InvoicesGenerator.ViewModels
                 Units = vm.DayChargeUnits,
                 Amount = vm.DayChargeAmount,
                 Tax = vm.DayChargeTax,
-                Total = vm.DayChargeTotal,
-                ChargeNameId = vm.DayChargeNameId
+                Total = vm.ChargeTotal,
+                ChargeNameId = 1
             };
 
             var nightCharge = new Charge
@@ -118,8 +116,8 @@ namespace InvoicesGenerator.ViewModels
                 Units = vm.NightChargeUnits,
                 Amount = vm.NightChargeAmount,
                 Tax = vm.NightChargeTax,
-                Total = vm.NightChargeTotal,
-                ChargeNameId = vm.NightChargeNameId
+                Total = vm.ChargeTotal,
+                ChargeNameId = 2
             };
 
             var weekendCharge = new Charge
@@ -129,11 +127,11 @@ namespace InvoicesGenerator.ViewModels
                 Units = vm.WeekendChargeUnits,
                 Amount = vm.WeekendChargeAmount,
                 Tax = vm.WeekendChargeTax,
-                Total = vm.WeekendChargeTotal,
-                ChargeNameId = vm.WeekendChargeNameId
+                Total = vm.ChargeTotal,
+                ChargeNameId = 3
             };
 
-            return new InvoiceFormViewModel
+            return new Invoice
             {
                 InvoiceId = vm.InvoiceId,
                 InvoiceNumber = vm.InvoiceNumber,
@@ -142,27 +140,10 @@ namespace InvoicesGenerator.ViewModels
                 StartDate = vm.StartDate,
                 EndDate = vm.EndDate,
                 ClientId = vm.ClientId,
-                DayChargeId = dayCharge.ChargeId,
-                DayChargeRate = dayCharge.Rate,
-                DayChargeUnits = dayCharge.Units,
-                DayChargeAmount = dayCharge.Amount,
-                DayChargeTax = dayCharge.Tax,
-                DayChargeTotal = dayCharge.Total,
-                DayChargeNameId = dayCharge.ChargeNameId,
-                NightChargeId = nightCharge.ChargeId,
-                NightChargeRate = nightCharge.Rate,
-                NightChargeUnits = nightCharge.Units,
-                NightChargeAmount = nightCharge.Amount,
-                NightChargeTax = nightCharge.Tax,
-                NightChargeTotal = nightCharge.Total,
-                NightChargeNameId = nightCharge.ChargeNameId,
-                WeekendChargeId = weekendCharge.ChargeId,
-                WeekendChargeRate = weekendCharge.Rate,
-                WeekendChargeUnits = weekendCharge.Units,
-                WeekendChargeAmount = weekendCharge.Amount,
-                WeekendChargeTax = weekendCharge.Tax,
-                WeekendChargeTotal = weekendCharge.Total,
-                WeekendChargeNameId = weekendCharge.ChargeNameId
+                Charges = new List<Charge>
+                {
+                    dayCharge, nightCharge, weekendCharge
+                }
             };
         }
     }
