@@ -187,15 +187,17 @@ namespace InvoicesGenerator.Controllers
             return RedirectToAction("UpDelInvoiceForm");
         }
 
-        public void DownloadExcel(int InvoiceId)
+        public void DownloadExcel(int invoiceId)
         {
-            var dbInvoice = invoiceService.GetInvoice(InvoiceId);
+            var dbInvoice = invoiceService.GetInvoice(invoiceId);
             var dbClient = clientService.GetClient(dbInvoice.ClientId);
-            var dbCharges = chargeService.GetInvoiceCharges(InvoiceId).ToList();
+            var dbCharges = chargeService.GetInvoiceCharges(invoiceId).ToList();
 
-            var calculationResult = chargeService.CalculateCharge(InvoiceId);
+            var calculationResult = chargeService.CalculateCharge(invoiceId);
             var unitsPerChargeName = chargeService.GetUnits(dbCharges);
             var ratePerChargeName = chargeService.GetRates(dbCharges);
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             ExcelPackage Ep = new ExcelPackage();
             ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Invoice Print");

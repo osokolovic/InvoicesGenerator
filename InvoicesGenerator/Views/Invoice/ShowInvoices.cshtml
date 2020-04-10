@@ -24,6 +24,7 @@
                     <th>@Html.ActionLink("Company Name", "ShowInvoices", "Invoice", new { sortOrder = "companyName", CompanyName = ViewBag.Filtered }, null)</th>
                     <th>@Html.ActionLink("Invoice date", "ShowInvoices", "Invoice", new { sortOrder = "invoiceDate", CompanyName = ViewBag.Filtered }, null)</th>
                     <th>@Html.ActionLink("Total charge", "ShowInvoices", "Invoice", new { sortOrder = "totalCharge", CompanyName = ViewBag.Filtered }, null)</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ChargeTotal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Excel", "DownloadExcel", "Invoice", new { invoiceId = item.InvoiceId }, null)
                     </td>
                 </tr>
             }
