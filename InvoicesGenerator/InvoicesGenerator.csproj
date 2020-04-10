@@ -197,6 +197,7 @@
     <Content Include="Views\Client\ShowClients.cshtml" />
     <Content Include="Views\Invoice\AddInvoiceForm.cshtml" />
     <Content Include="Views\Invoice\UpDelInvoiceForm.cshtml" />
+    <Content Include="Views\Invoice\ShowInvoices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

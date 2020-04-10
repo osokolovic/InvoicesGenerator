@@ -103,6 +103,42 @@ namespace InvoicesGenerator.Controllers
             return JsonConvert.SerializeObject(viewInvoice);
         }
 
+        private List<InvoiceFormViewModel> castInvoices(IEnumerable<Invoice> invoices)
+        {
+            List<InvoiceFormViewModel> viewInvoices = new List<InvoiceFormViewModel>();
+            foreach (var item in invoices)
+            {
+                viewInvoices.Add(item);
+            }
+
+            return viewInvoices;
+        }
+
+        public ActionResult ShowInvoices(string sortOrder, string CompanyName = null)
+        {
+            var invoices = invoiceService.GetInvoices();
+            var sortedInvoices = invoiceService.SortInvoicesByParam(invoices, sortOrder);
+            if (String.IsNullOrEmpty(CompanyName) == false)
+            {
+                ViewBag.Filtered = CompanyName;
+                sortedInvoices = invoiceService.FilterByCompanyName(sortedInvoices, CompanyName);
+            }
+
+            return View(this.castInvoices(sortedInvoices));
+        }
+
+        public ActionResult ShowFilteredInvoices(string CompanyName)
+        {
+            var filteredInvoices = invoiceService.GetInvoices();
+            if (String.IsNullOrEmpty(CompanyName) == false)
+            {
+                ViewBag.Filtered = CompanyName;
+                filteredInvoices = invoiceService.FilterByCompanyName(filteredInvoices, CompanyName);
+            }
+
+            return View("ShowInvoices", this.castInvoices(filteredInvoices));
+        }
+
         public ActionResult Delete(InvoiceFormViewModel invoice)
         {
             try
@@ -122,6 +158,33 @@ namespace InvoicesGenerator.Controllers
             var companies = clientService.GetClients().ToList();
             ViewBag.Clients = companies;
             return View("UpDelInvoiceForm", invoice);
+        }
+
+        public ActionResult Update(InvoiceFormViewModel invoice)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    invoiceService.UpdateInvoice(invoice);
+                    invoiceService.SaveInvoice();
+                    TempData["MainMessage"] = "Invoice was updated successfully.";
+                    TempData["MessageType"] = "success";
+                }
+                catch (Exception e)
+                {
+                    TempData["MainMessage"] = "Error, client was not updated.";
+                    TempData["MessageType"] = "danger";
+                }
+            }
+            else
+            {
+                var companies = clientService.GetClients().ToList();
+                ViewBag.Clients = companies;
+                return View("UpDelInvoiceForm", invoice);
+            }
+
+            return RedirectToAction("UpDelInvoiceForm");
         }
 
         public void DownloadExcel(int InvoiceId)

@@ -61,12 +61,51 @@ namespace Invoices.Services.Implementation
         public void DeleteInvoice(Invoice invoice)
         {
             var dbInvoice = invoicesRepository.GetById(invoice.InvoiceId);
-            //Zbog dobrih praksi, pozeljno bi bilo uraditi soft delete.
-            //To nije navedeno pa ne zelim da krsim acceptance kriterij.
+
             if (dbInvoice != null)
             {
                 invoicesRepository.Delete(dbInvoice);
             }
+        }
+
+        public void UpdateInvoice(Invoice invoice)
+        {
+            invoicesRepository.Update(invoice);
+        }
+
+        public IEnumerable<Invoice> SortInvoicesByParam(IEnumerable<Invoice> invoices, string sortOrder)
+        {
+            IEnumerable<Invoice> sorted;
+            switch (sortOrder)
+            {
+                case "invoiceNumber":
+                    sorted = invoices.OrderBy(o => o.InvoiceNumber);
+                    break;
+                case "companyName":
+                    sorted = invoices.OrderBy(o => o.CompanyName);
+                    break;
+                case "invoiceDate":
+                    sorted = invoices.OrderBy(o => o.InvoiceDate);
+                    break;
+                case "totalCharge":
+                    sorted = invoices.OrderBy(o => o.Charges.First().Total);
+                    break;
+                default:
+                    sorted = invoices.OrderBy(o => o.CompanyName);
+                    break;
+            }
+
+            return sorted;
+        }
+
+        public IEnumerable<Invoice> FilterByCompanyName(IEnumerable<Invoice> invoices, string companyName)
+        {
+            if (String.IsNullOrEmpty(companyName) == false)
+            {
+                invoices = invoices.Where(i => i.CompanyName.ToUpper().Contains(companyName.ToUpper()));
+            }
+
+            return invoices;
         }
     }
 }
