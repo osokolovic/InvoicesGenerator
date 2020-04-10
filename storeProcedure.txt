@@ -1,0 +1,50 @@
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON  
+GO  
+SET QUOTED_IDENTIFIER ON  
+GO  
+-- =============================================  
+-- Author:      Omar Sokolovic
+-- Create date: 09-Apr-2020  
+-- Description: Return data presented in InvoiceChart sheet  
+-- =============================================  
+CREATE PROCEDURE sp_GetMonthTotalPerChargeName  
+    -- Add the parameters for the stored procedure here  
+    @Year INT,
+	@Month INT
+      
+AS  
+BEGIN  
+    
+	Select cn.Name, Sum(c.Total) as Total
+	From Charge c
+	Inner Join ChargeName cn on c.ChargeNameId = cn.ChargeNameId
+	Inner Join Invoice i on c.InvoiceId = i.InvoiceId
+	Where Year(i.InvoiceDate) = @Year and Month(i.InvoiceDate) = @Month
+	Group by cn.Name 
+	          
+END  
+GO 
+
+
+
+-- Store procedure test
+
+Select * From Invoice;
+Select * From Charge;
+Select * From ChargeName;
+
+
+EXECUTE dbo.sp_GetMonthTotalPerChargeName @Year = 2020, @Month =4;
+GO 
+
