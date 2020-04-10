@@ -1,0 +1,47 @@
+﻿@model IEnumerable<InvoicesGenerator.ViewModels.InvoiceChartFormViewModel>
+
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-horizontal" method="post" action="@Url.Action("GeChart", "Invoice")">
+            <div class="form-group">
+                <label for="inputYear" class="col-lg-2 control-label">Invoice year</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputYear" name="Year"
+                           value="@Request.Form["Year"]" min="1900" max="@DateTime.Now.Year" step="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputMonth" class="col-lg-2 control-label">Invoice Month</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputMonth" name="Month"
+                           value="@Request.Form["Month"]" min="1" max="12" step="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-3 text-center">
+                    <button type="submit" class="btn btn-default">Show</button>
+                </div>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Night</th>
+                    <th>Weekend</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.Year</td>
+                    <td>@ViewBag.Month</td>
+                    <td>@Model.ToList()[0].Total</td>
+                    <td>@Model.ToList()[1].Total</td>
+                    <td>@Model.ToList()[2].Total</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

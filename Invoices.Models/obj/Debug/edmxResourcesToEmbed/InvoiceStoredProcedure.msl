@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InvoicesDBModelStoreContainer" CdmEntityContainer="InvoicesDBEntities">
+    <FunctionImportMapping FunctionImportName="sp_GetMonthTotalPerChargeName" FunctionName="InvoicesDBModel.Store.sp_GetMonthTotalPerChargeName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InvoicesDBModel.sp_GetMonthTotalPerChargeName_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

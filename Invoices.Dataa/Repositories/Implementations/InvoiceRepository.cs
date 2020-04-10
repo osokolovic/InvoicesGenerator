@@ -22,5 +22,25 @@ namespace Invoices.Data.Repositories.Implementations
         {
             return this.DbContext.Invoices.Where(i => i.InvoiceNumber == invoiceNumber).FirstOrDefault();
         }
+
+        public IEnumerable<InvoiceChart> GetInvoiceChart(int Year, int Month)
+        {
+            using (var context = new InvoicesDBEntities()) {
+                var chart = context.sp_GetMonthTotalPerChargeName(Year, Month).ToList();
+
+                var result = new List<InvoiceChart>();
+                foreach (var item in chart)
+                {
+                    result.Add(new InvoiceChart
+                    {
+                        Name = item.Name,
+                        Total = item.Total ?? 0
+                    }
+                    );
+                }
+
+                return result;
+            }
+        }
     }
 }

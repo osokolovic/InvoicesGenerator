@@ -12,5 +12,6 @@ namespace Invoices.Data.Repositories.Interfaces
     {
         Invoice GetInvoiceByInvoiceNumber(string invoiceNumber);
         IEnumerable<Invoice> GetInvoiceByClientId(int clientId);
+        IEnumerable<InvoiceChart> GetInvoiceChart(int Year, int Month);
     }
 }

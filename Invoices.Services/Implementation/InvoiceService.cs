@@ -107,5 +107,10 @@ namespace Invoices.Services.Implementation
 
             return invoices;
         }
+
+        public IEnumerable<InvoiceChart> GetInvoiceChart(int year, int month)
+        {
+            return invoicesRepository.GetInvoiceChart(year, month);
+        }
     }
 }

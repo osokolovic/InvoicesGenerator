@@ -257,5 +257,21 @@ namespace InvoicesGenerator.Controllers
             Response.BinaryWrite(Ep.GetAsByteArray());
             Response.End();
         }
+
+        public ActionResult GetChart(int year, int month)
+        {
+            List<InvoiceChart> chart = invoiceService.GetInvoiceChart(year, month).ToList();
+            List<InvoiceChartFormViewModel> result = new List<InvoiceChartFormViewModel>
+            {
+                new InvoiceChartFormViewModel { Name = chart[0].Name, Total = chart[0].Total },
+                new InvoiceChartFormViewModel { Name = chart[1].Name, Total = chart[1].Total },
+                new InvoiceChartFormViewModel { Name = chart[2].Name, Total = chart[2].Total }
+            };
+
+            ViewBag.Year = year;
+            ViewBag.Month = month;
+
+            return RedirectToAction("ShowInvoiceChart", result);
+        }
     }
 }

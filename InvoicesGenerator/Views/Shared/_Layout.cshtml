@@ -41,7 +41,7 @@
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Preview</li>
                             <li>@Html.ActionLink("Show", "ShowInvoices", "Invoice")</li>
-                            <li>@Html.ActionLink("Chart", "About", "Home")</li>
+                            <li>@Html.ActionLink("Chart", "GetChart", "Invoice", new { year = DateTime.Now.Year, month = DateTime.Now.Month }, null)</li>
                         </ul>
                     </li>
                 </ul>

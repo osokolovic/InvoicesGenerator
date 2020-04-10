@@ -15,5 +15,6 @@ namespace Invoices.Services.Interfaces
         void DeleteInvoice(Invoice invoice);
         IEnumerable<Invoice> SortInvoicesByParam(IEnumerable<Invoice> invoices, string sortOrder);
         IEnumerable<Invoice> FilterByCompanyName(IEnumerable<Invoice> invoices, string companyName);
+        IEnumerable<InvoiceChart> GetInvoiceChart(int year, int month);
     }
 }

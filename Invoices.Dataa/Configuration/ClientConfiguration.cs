@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Invoices.Data.Configuration
 {
-    public class ClientConfiguration: EntityTypeConfiguration<Client>
+    public class ClientConfiguration : EntityTypeConfiguration<Client>
     {
         public ClientConfiguration()
         {

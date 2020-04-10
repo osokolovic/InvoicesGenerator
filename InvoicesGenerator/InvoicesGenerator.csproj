@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ClientFormViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceChartFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +199,7 @@
     <Content Include="Views\Invoice\AddInvoiceForm.cshtml" />
     <Content Include="Views\Invoice\UpDelInvoiceForm.cshtml" />
     <Content Include="Views\Invoice\ShowInvoices.cshtml" />
+    <Content Include="Views\Invoice\ShowInvoiceChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
