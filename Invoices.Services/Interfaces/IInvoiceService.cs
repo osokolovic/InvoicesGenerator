@@ -9,6 +9,8 @@ namespace Invoices.Services.Interfaces
         IEnumerable<Invoice> GetClientInvoices(string companyName, string invoiceNumber = null);
         Invoice GetInvoice(int invoiceId);
         void CreateInvoice(Invoice invoice);
+        IEnumerable<Invoice> GetClientInvoices(int clientId);
         void SaveInvoice();
+        void DeleteInvoice(Invoice invoice);
     }
 }

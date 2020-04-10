@@ -1,6 +1,7 @@
 ﻿using Invoices.Models;
 using Invoices.Services.Interfaces;
 using InvoicesGenerator.ViewModels;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,54 @@ namespace InvoicesGenerator.Controllers
             {
                 return View(invoice);
             }
+        }
+
+        public ActionResult UpDelInvoiceForm()
+        {
+            var companies = clientService.GetClients().ToList();
+            ViewBag.Clients = companies;
+            return View();
+        }
+
+        public string GetInvoicesForClient(int clientId)
+        {
+            var invoices = invoiceService.GetClientInvoices(clientId).Select(i => new {
+                i.InvoiceId,
+                i.InvoiceNumber,
+                i.CompanyName,
+                i.ClientId
+            });
+            
+            return JsonConvert.SerializeObject(invoices);
+        }
+
+        public string GetInvoiceById(int invoiceId)
+        {
+            var dbInvoice = invoiceService.GetInvoice(invoiceId);
+            InvoiceFormViewModel viewInvoice = dbInvoice;
+
+            return JsonConvert.SerializeObject(viewInvoice);
+        }
+
+        public ActionResult Delete(InvoiceFormViewModel invoice)
+        {
+            try
+            {
+                invoiceService.DeleteInvoice(invoice);
+                invoiceService.SaveInvoice();
+                //Poruke bi trebale biti izdvojene u zaseban file zbog mogucnosti lokalizacije u buducnosti
+                TempData["MainMessage"] = "Invoice was deleted successfully.";
+                TempData["MessageType"] = "success";
+            }
+            catch (Exception e)
+            {
+                TempData["MainMessage"] = "Error, invoice was not deleted.";
+                TempData["MessageType"] = "danger";
+            }
+
+            var companies = clientService.GetClients().ToList();
+            ViewBag.Clients = companies;
+            return View("UpDelInvoiceForm", invoice);
         }
 
         public void DownloadExcel(int InvoiceId)

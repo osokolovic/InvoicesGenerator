@@ -61,9 +61,9 @@ namespace InvoicesGenerator.ViewModels
 
         public static implicit operator InvoiceFormViewModel(Invoice invoice)
         {
-            var dayCharge = invoice.Charges.Where(i => i.ChargeName.Name == "Day").FirstOrDefault();
-            var nightCharge = invoice.Charges.Where(i => i.ChargeName.Name == "Night").FirstOrDefault();
-            var weekendCharge = invoice.Charges.Where(i => i.ChargeName.Name == "Weekend").FirstOrDefault();
+            var dayCharge = invoice.Charges.Where(i => i.ChargeNameId == 1).FirstOrDefault();
+            var nightCharge = invoice.Charges.Where(i => i.ChargeNameId == 2).FirstOrDefault();
+            var weekendCharge = invoice.Charges.Where(i => i.ChargeNameId == 3).FirstOrDefault();
 
             return new InvoiceFormViewModel
             {

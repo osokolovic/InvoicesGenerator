@@ -1,6 +1,6 @@
 ﻿@model InvoicesGenerator.ViewModels.InvoiceFormViewModel
 @{
-    ViewBag.Title = "Add new invoice";
+    ViewBag.Title = "Update/Delete existing clients";
 }
 <div class="row">
     <div class="col-lg-12">
@@ -10,7 +10,30 @@
 <hr />
 <div class="row">
     <div class="col-lg-12">
-        <form class="form-horizontal" method="post" action="@Url.Action("AddInvoiceForm", "Invoice")">
+        <form class="form-horizontal" method="post">
+            <div class="form-group">
+                <label for="selectClient" class="col-lg-2 control-label">Client</label>
+                <div class="col-lg-10">
+                    <select id="selectClient" name="ClientId" class="form-control">
+                        <option disabled selected>Select client</option>
+                        @if (ViewBag.Clients != null)
+                        {
+                            foreach (var item in ViewBag.Clients)
+                            {
+                                <option value="@item.ClientId">@item.CompanyName</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="selectInvoice" class="col-lg-2 control-label">Invoice</label>
+                <div class="col-lg-10">
+                    <select id="selectInvoice" name="InvoiceId" class="form-control">
+                        <option value="-1" disabled selected>Select invoice</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="inputInvoiceNumber" class="col-lg-2 control-label">Invoice Number</label>
                 <div class="col-lg-10">
@@ -22,6 +45,16 @@
                 </p>
             </div>
             <div class="form-group">
+                <label for="inputCompanyName" class="col-lg-2 control-label">Company name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputCompanyName" name="CompanyName"
+                           value="@Request.Form["CompanyName"]" placeholder="Enter company name" readonly>
+                </div>
+                <p class="col-lg-7 text-center">
+                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="form-group">
                 <label for="inputInvoiceDate" class="col-lg-2 control-label">Invoice date</label>
                 <div class="col-lg-10">
                     <input type="date" class="form-control" id="inputInvoiceDate" name="InvoiceDate"
@@ -29,24 +62,6 @@
                 </div>
                 <p class="col-lg-7 text-center">
                     @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
-                </p>
-            </div>
-            <div class="form-group">
-                <label for="selectCompany" class="col-lg-2 control-label">Company</label>
-                <div class="col-lg-10">
-                    <select id="selectCompany" name="CompanyName" class="form-control">
-                        <option disabled selected>Select company</option>
-                        @if (ViewBag.Companies != null)
-                        {
-                            foreach (var item in ViewBag.Companies)
-                            {
-                                <option value="@item.CompanyName">@item.CompanyName</option>
-                            }
-                        }
-                    </select>
-                </div>
-                <p class="col-lg-7 text-center">
-                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                 </p>
             </div>
             <div class="form-group">
@@ -205,18 +220,69 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-3 text-center">
-                    <button type="submit" class="btn btn-default">Save</button>
+                    <button type="submit" class="btn btn-danger" formaction="@Url.Action("Delete", "Invoice")">
+                        Delete
+                    </button>
+                    <button type="submit" class="btn btn-default" formaction="@Url.Action("Update", "Invoice")">
+                        Update
+                    </button>
                 </div>
             </div>
-            @if (String.IsNullOrEmpty(ViewBag.MainMessage) == false)
+            @if (TempData["MainMessage"] != null)
             {
                 <div class="form-group">
-                    <div class="alert alert-@ViewBag.MessageType alert-dismissible fade in" role="alert">
+                    <div class="alert alert-@TempData["MessageType"] alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        @ViewBag.MainMessage
+                        @TempData["MainMessage"]
                     </div>
                 </div>
             }
         </form>
     </div>
 </div>
+<script>
+    $("#selectClient").change(function () {
+        $.ajax({
+            url: "@Url.Action("GetInvoicesForClient", "Invoice")",
+            data: {
+                clientId: $(this).val()
+            },
+            success: function (result) {
+                let invoices = JSON.parse(result);
+                $("#selectInvoice").find("[value != '-1']").remove();
+                invoices.forEach((item) => {
+                    $("#selectInvoice").append(new Option(item.InvoiceNumber, item.InvoiceId));
+                });
+            }
+        })
+    });
+    $("#selectInvoice").change(function () {
+        $.ajax({
+            url: "@Url.Action("GetInvoiceById", "Invoice")",
+            data: {
+                invoiceId: $(this).val()
+            },
+            success: function (result) {
+                let item = JSON.parse(result);
+                $("#inputInvoiceNumber").val(item.InvoiceNumber);
+                $("#inputInvoiceDate").val(item.InvoiceDate.split("T")[0]);
+                $("#inputStartDate").val(item.StartDate.split("T")[0]);
+                $("#inputEndDate").val(item.EndDate.split("T")[0]);
+                $("#inputCompanyName").val(item.CompanyName);
+                $("#inputDayChargeRate").val(item.DayChargeRate);
+                $("#inputDayChargeUnits").val(item.DayChargeUnits);
+                $("#inputDayChargeAmount").val(item.DayChargeAmount);
+                $("#inputDayChargeTax").val(item.DayChargeTax);
+                $("#inputNightChargeRate").val(item.NightChargeRate);
+                $("#inputNightChargeUnits").val(item.NightChargeUnits);
+                $("#inputNightChargeAmount").val(item.NightChargeAmount);
+                $("#inputNightChargeTax").val(item.NightChargeTax);
+                $("#inputWeekendChargeRate").val(item.WeekendChargeRate);
+                $("#inputWeekendChargeUnits").val(item.WeekendChargeUnits);
+                $("#inputWeekendChargeAmount").val(item.WeekendChargeAmount);
+                $("#inputWeekendChargeTax").val(item.WeekendChargeTax);
+                $("#inputChargeTotal").val(item.ChargeTotal);
+            }
+        })
+    });
+</script>

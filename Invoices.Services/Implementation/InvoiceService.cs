@@ -46,9 +46,27 @@ namespace Invoices.Services.Implementation
             return invoices;
         }
 
+        public IEnumerable<Invoice> GetClientInvoices(int clientId)
+        {
+            var invoices = invoicesRepository.GetInvoiceByClientId(clientId);
+
+            return invoices;
+        }
+
         public void SaveInvoice()
         {
             unitOfWork.Commit();
+        }
+
+        public void DeleteInvoice(Invoice invoice)
+        {
+            var dbInvoice = invoicesRepository.GetById(invoice.InvoiceId);
+            //Zbog dobrih praksi, pozeljno bi bilo uraditi soft delete.
+            //To nije navedeno pa ne zelim da krsim acceptance kriterij.
+            if (dbInvoice != null)
+            {
+                invoicesRepository.Delete(dbInvoice);
+            }
         }
     }
 }

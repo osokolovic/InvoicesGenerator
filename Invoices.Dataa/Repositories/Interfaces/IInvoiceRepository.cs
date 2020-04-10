@@ -11,5 +11,6 @@ namespace Invoices.Data.Repositories.Interfaces
     public interface IInvoiceRepository: IRepository<Invoice>
     {
         Invoice GetInvoiceByInvoiceNumber(string invoiceNumber);
+        IEnumerable<Invoice> GetInvoiceByClientId(int clientId);
     }
 }
